@@ -29,13 +29,8 @@ class TenantForm extends Component
 
     public function mount(string $id = '')
     {
-        $this->tenant = $id ? $this->tenantRepo->find($id) : null;
+        $this->tenant = $this->tenantRepo->find($id);
         $this->setFormData();
-    }
-
-    public function render()
-    {
-        return view('livewire.admin.tenants.tenant-form');
     }
 
     private function setFormData()
@@ -61,10 +56,7 @@ class TenantForm extends Component
 
         $this->tenantRepo->store($validated);
 
-        $this->success(
-            __('Create Successfully'),
-            redirectTo: route('admin.tenant.index')
-        );
+        $this->success(__('Create Successfully'), redirectTo: route('admin.tenant.index'));
     }
 
     public function update()
@@ -79,9 +71,11 @@ class TenantForm extends Component
 
         $this->tenantRepo->update($this->tenant->id, $validated);
 
-        $this->success(
-            __('Update Successfully'),
-            redirectTo: route('admin.tenant.index')
-        );
+        $this->success(__('Update Successfully'), redirectTo: route('admin.tenant.index'));
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.tenants.tenant-form');
     }
 }

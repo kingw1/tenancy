@@ -3,23 +3,31 @@
 namespace App\Repositories;
 
 use App\Models\Tenant;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 
 class TenantRepository
 {
-    public function find(string $id): Tenant
+    public function find(string $id): Tenant|null
     {
         return Tenant::find($id);
     }
 
-    public function paginate(array $filters = [], $perPage = 10): LengthAwarePaginator
+    public function query(array $filters = []): Builder
     {
         return Tenant::query()
             ->when($filters['search'] ?? null, function ($query, $value) {
                 return $query->whereLike('name', "%{$value}%")
-                    ->orWhereLike('domain', "%{$value}%");
-            })
+                    ->orWhereLike('domain', "%{$value}%")
+                    ->orWhereLike('email', "%{$value}%")
+                    ->orWhereLike('phone', "%{$value}%");
+            });
+    }
+
+    public function paginate(array $filters = [], $perPage = 10): LengthAwarePaginator
+    {
+        return $this->query($filters)
             ->latest()
             ->paginate($perPage);
     }
