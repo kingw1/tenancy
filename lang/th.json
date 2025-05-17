@@ -1,0 +1,33 @@
+{
+  "Save": "บันทึกข้อมูล",
+  "Cancel": "ยกเลิก",
+  "No records found": "ไม่พบข้อมูล",
+  "Select": "เลือก",
+  "Search": "ค้นหา",
+  "Search Data": "ค้นหาข้อมูล",
+  "Clear Data": "ล้างข้อมูล",
+  "Seconds": "วินาที",
+  "Create": "เพิ่ม",
+  "Edit": "แก้ไข",
+  "Delete": "ลบ",
+  "Close": "ปิด",
+  "Add": "เพิ่ม",
+  "Remove": "ลบ",
+  "Ok": "ตกลง",
+
+  "Create Successfully": "เพิ่มข้อมูลเรียบร้อย",
+  "Update Successfully": "แก้ไขข้อมูลเรียบร้อย",
+  "Delete Successfully": "ลบข้อมูลเรียบร้อย",
+
+  "Are you sure you want to delete": "คุณแน่ใจหรือว่าต้องการลบ",
+  "Confirm delete": "ยืนยันการลบ",
+  "Confirm": "ยืนยัน",
+  "An error occurred": "เกิดข้อผิดพลาด",
+  "Error": "Error",
+  "Status": "สถานะ",
+
+  "Dashboard": "Dashboard",
+  "Your profile": "โปรไฟล์",
+  "Sign out": "ออกจากระบบ",
+  "Toggle Theme": "เปลี่ยนธีม"
+}
