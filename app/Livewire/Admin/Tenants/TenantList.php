@@ -34,16 +34,6 @@ class TenantList extends Component
         ];
     }
 
-    public function render()
-    {
-        return view('livewire.admin.tenants.tenant-list', [
-            'headers' => $this->headers(),
-            'tenants' => $this->tenantRepo->paginate([
-                'search' => $this->search
-            ])
-        ]);
-    }
-
     public function confirmDelete($id, $name)
     {
         $this->selectedDeleteId = $id;
@@ -58,9 +48,16 @@ class TenantList extends Component
         $this->confirmingDelete = false;
         $this->selectedDeleteId = '';
 
-        $this->success(
-            __('Delete Successfully'),
-            redirectTo: route('admin.tenant.index')
-        );
+        $this->success(__('Delete Successfully'), redirectTo: route('admin.tenant.index'));
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.tenants.tenant-list', [
+            'headers' => $this->headers(),
+            'tenants' => $this->tenantRepo->paginate([
+                'search' => $this->search
+            ])
+        ]);
     }
 }

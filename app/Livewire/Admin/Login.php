@@ -24,7 +24,6 @@ class Login extends Component
             return $this->redirectIntended(route('admin.dashboard'));
         } else {
             session()->flash('message', __('auth.failed'));
-
             return $this->redirectRoute('admin.login');
         }
     }
